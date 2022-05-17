@@ -16,18 +16,18 @@ public class Book implements Serializable {
     private String id;
     private String title;
     private String author;
-    private Date date;
+    private Date publication;
 
     private ReaderDTO reader;
 
     public Book() {
     }
 
-    public Book(String id, String title, String author, Date date) {
+    public Book(String id, String title, String author, Date publication) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.date = date;
+        this.publication = publication;
     }
 
     public String getId() {
@@ -55,11 +55,11 @@ public class Book implements Serializable {
     }
 
     public Date getDate() {
-        return date;
+        return publication;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.publication = date;
     }
 
     public ReaderDTO getReader() {
