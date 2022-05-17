@@ -1,5 +1,6 @@
 package com.leocptr.workshopmongo.resources;
 
+import com.leocptr.workshopmongo.domain.Book;
 import com.leocptr.workshopmongo.domain.User;
 import com.leocptr.workshopmongo.dto.UserDTO;
 import com.leocptr.workshopmongo.service.UserService;
@@ -30,6 +31,12 @@ public class UserResource {
     public ResponseEntity<UserDTO> findById(@PathVariable String id){
         User user = service.findById(id);
         return ResponseEntity.ok().body(new UserDTO(user));
+    }
+
+    @RequestMapping(value="/{id}/book",method= RequestMethod.GET)
+    public ResponseEntity<Book> findBookByUserId(@PathVariable String id){
+        User user = service.findById(id);
+        return ResponseEntity.ok().body(user.getBook());
     }
 
     @RequestMapping(method= RequestMethod.POST)
