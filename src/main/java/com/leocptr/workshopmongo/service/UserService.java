@@ -1,6 +1,7 @@
 package com.leocptr.workshopmongo.service;
 
 import com.leocptr.workshopmongo.domain.User;
+import com.leocptr.workshopmongo.dto.UserDTO;
 import com.leocptr.workshopmongo.repository.UserRepository;
 import com.leocptr.workshopmongo.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,13 @@ public class UserService {
     public User findById(String id) {
         Optional<User> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public User insert(User obj){
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO){
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
     }
 }
