@@ -1,5 +1,6 @@
 package com.leocptr.workshopmongo.domain;
 
+import com.leocptr.workshopmongo.dto.ReaderDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,7 +18,7 @@ public class Book implements Serializable {
     private String author;
     private Date date;
 
-    private User reader;
+    private ReaderDTO reader;
 
     public Book() {
     }
@@ -61,11 +62,11 @@ public class Book implements Serializable {
         this.date = date;
     }
 
-    public User getReader() {
+    public ReaderDTO getReader() {
         return reader;
     }
 
-    public void setReader(User reader) {
+    public void setReader(ReaderDTO reader) {
         this.reader = reader;
     }
 
