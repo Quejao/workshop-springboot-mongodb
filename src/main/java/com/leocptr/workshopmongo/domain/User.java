@@ -1,6 +1,7 @@
 package com.leocptr.workshopmongo.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -12,6 +13,8 @@ public class User implements Serializable {
     private String id;
     private  String name;
     private String email;
+    @DBRef(lazy = true)
+    private Book book;
 
     public User() {
     }
@@ -44,6 +47,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override

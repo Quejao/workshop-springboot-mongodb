@@ -40,5 +40,7 @@ public class Instantiation implements CommandLineRunner {
         book1.setReader(new ReaderDTO(user1));
 
         bookRepository.saveAll(Arrays.asList(book1,book2));
+        user1.setBook(book1);
+        userRepository.save(user1);
     }
 }
